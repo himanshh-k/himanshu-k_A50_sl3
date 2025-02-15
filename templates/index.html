@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Navbar with Tables</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        .container-flex {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container-flex">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('hello_world') }}">My Website</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('home_page') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('products') }}">Products</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>        
+
+        <div class="content">
+            <header class="container text-center py-5">
+                <h1 class="display-4">Welcome to My Website</h1>
+                <p class="lead text-muted">A clean and modern Bootstrap design</p>
+                <a href="#" class="btn btn-dark btn-lg">Get Started</a>
+            </header>
+
+            <section class="container my-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Feature One</h5>
+                                <p class="card-text">Short description of the feature.</p>
+                                <a href="#" class="btn btn-outline-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Feature Two</h5>
+                                <p class="card-text">Short description of the feature.</p>
+                                <a href="#" class="btn btn-outline-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Feature Three</h5>
+                                <p class="card-text">Short description of the feature.</p>
+                                <a href="#" class="btn btn-outline-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container mt-4">
+                <div id="table1">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Header 1</th>
+                                <th>Header 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data 1</td>
+                                <td>Data 2</td>
+                            </tr>
+                            <tr>
+                                <td>Data 3</td>
+                                <td>Data 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table2" style="display: none;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Header A</th>
+                                <th>Header B</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data A</td>
+                                <td>Data B</td>
+                            </tr>
+                            <tr>
+                                <td>Data C</td>
+                                <td>Data D</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="table3" style="display: none;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Header X</th>
+                                <th>Header Y</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data X</td>
+                                <td>Data Y</td>
+                            </tr>
+                            <tr>
+                                <td>Data Z</td>
+                                <td>Data W</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p class="mb-0">&copy; 2025 My Website. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTable(tableId) {
+            var tables = document.querySelectorAll('div[id^="table"]');
+            tables.forEach(table => table.style.display = 'none');
+            document.getElementById(tableId).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
